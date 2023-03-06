@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgres:12
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "postgres" ]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    depends_on:
+      - db
+      

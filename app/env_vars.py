@@ -12,6 +12,7 @@ try:
     DB_USER_NAME = os.environ["DB_USER_NAME"]
     DB_USER_PASS = os.environ["DB_USER_PASS"]
     CART_ENC_KEY = os.environ["CART_ENC_KEY"]
+    DB_URL = os.environ["DB_URL"] or "localhost"
 except KeyError:
     print(
         "Failed to find all of the required environment variables: DB_USER_NAME, DB_USER_PASS, CART_ENC_KEY.\n"

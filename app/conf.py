@@ -1,6 +1,6 @@
 # Database connection
 
-from app.env_vars import DB_USER_NAME, DB_USER_PASS
+from app.env_vars import DB_USER_NAME, DB_USER_PASS, DB_URL
 
 import sqlalchemy as sqlalch
 
@@ -21,7 +21,7 @@ class DefaultConfig(Config):
         drivername="postgresql",
         username=DB_USER_NAME,
         password=DB_USER_PASS,
-        host="localhost",
+        host=DB_URL,
         port=5432,
         database="decider",
     )
@@ -32,7 +32,7 @@ class ProductionConfig(Config):
         drivername="postgresql",
         username=DB_USER_NAME,
         password=DB_USER_PASS,
-        host="localhost",
+        host=DB_URL,
         port=5432,
         database="decider",
     )
